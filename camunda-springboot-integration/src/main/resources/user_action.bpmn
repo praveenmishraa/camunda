@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_06l0o1u" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.8.1" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
+  <bpmn:process id="Process_Demo" name="User Activity Process" isExecutable="true">
+    <bpmn:sequenceFlow id="Flow_07502vy" sourceRef="StartEvent" targetRef="Activity_Greet" />
+    <bpmn:endEvent id="EndEvent" name="End Event">
+      <bpmn:incoming>Flow_086c6z6</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_086c6z6" sourceRef="Activity_Greet" targetRef="EndEvent" />
+    <bpmn:userTask id="Activity_Greet" name="User Activity">
+      <bpmn:incoming>Flow_07502vy</bpmn:incoming>
+      <bpmn:outgoing>Flow_086c6z6</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:startEvent id="StartEvent" name="Start Event">
+      <bpmn:outgoing>Flow_07502vy</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_1nxauvx" messageRef="Message_1wrcmuf" />
+    </bpmn:startEvent>
+    <bpmn:textAnnotation id="TextAnnotation_0aul7wa">
+      <bpmn:text>Start Process</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0tt4n3y" sourceRef="StartEvent" targetRef="TextAnnotation_0aul7wa" />
+    <bpmn:textAnnotation id="TextAnnotation_1fjx4nv">
+      <bpmn:text>End Process</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_19vnkhm" sourceRef="EndEvent" targetRef="TextAnnotation_1fjx4nv" />
+    <bpmn:textAnnotation id="TextAnnotation_0waqvv5">
+      <bpmn:text>User Action</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0wculz5" sourceRef="Activity_Greet" targetRef="TextAnnotation_0waqvv5" />
+  </bpmn:process>
+  <bpmn:message id="Message_1wrcmuf" name="startUserActivityFlow" />
+  <bpmn:message id="Message_1iyyygr" name="Message_3ifoe7b" />
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_Demo">
+      <bpmndi:BPMNShape id="TextAnnotation_0aul7wa_di" bpmnElement="TextAnnotation_0aul7wa">
+        <dc:Bounds x="200" y="100" width="100" height="30" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1fjx4nv_di" bpmnElement="TextAnnotation_1fjx4nv">
+        <dc:Bounds x="560" y="100" width="100" height="30" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0waqvv5_di" bpmnElement="TextAnnotation_0waqvv5">
+        <dc:Bounds x="410" y="80" width="100" height="30" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_07502vy_di" bpmnElement="Flow_07502vy">
+        <di:waypoint x="198" y="200" />
+        <di:waypoint x="310" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_086c6z6_di" bpmnElement="Flow_086c6z6">
+        <di:waypoint x="410" y="200" />
+        <di:waypoint x="522" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Event_0kiqxtm_di" bpmnElement="EndEvent">
+        <dc:Bounds x="522" y="182" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="515" y="225" width="51" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1emczuo_di" bpmnElement="Activity_Greet">
+        <dc:Bounds x="310" y="160" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_00mtvgv_di" bpmnElement="StartEvent">
+        <dc:Bounds x="162" y="182" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="153" y="225" width="55" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_0tt4n3y_di" bpmnElement="Association_0tt4n3y">
+        <di:waypoint x="191" y="186" />
+        <di:waypoint x="238" y="130" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_19vnkhm_di" bpmnElement="Association_19vnkhm">
+        <di:waypoint x="551" y="186" />
+        <di:waypoint x="598" y="130" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0wculz5_di" bpmnElement="Association_0wculz5">
+        <di:waypoint x="398" y="160" />
+        <di:waypoint x="446" y="110" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

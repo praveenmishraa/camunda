@@ -1,0 +1,26 @@
+plugins {
+	id 'org.springframework.boot' version '2.5.1'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.execution'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-webapp:7.15.0'
+	implementation 'org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-rest:7.15.0'
+  runtimeOnly 'com.h2database:h2'
+	runtimeOnly 'com.sun.xml.bind:jaxb-impl:2.2.3'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+test {
+	useJUnitPlatform()
+}
